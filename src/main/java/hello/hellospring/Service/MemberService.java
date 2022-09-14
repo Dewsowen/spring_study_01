@@ -3,16 +3,20 @@ package hello.hellospring.Service;
 import hello.hellospring.domain.Member;
 import hello.hellospring.repository.MemberRepository;
 import hello.hellospring.repository.MemoryMemberRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service //@Service 및 @Controller , @Reposiroty안에 @Component가 들어가 있음, 이 방법을 컴포넌트 스캔이라고 부름.
 public class MemberService {
 
     private final MemberRepository memberRepository;
 
     //Consturctor 단축키 = alt + insert
     //DI : Dependency Injection 의존성 주입, 회원서비스 테스트 17:21초
+    @Autowired
     public MemberService(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }
